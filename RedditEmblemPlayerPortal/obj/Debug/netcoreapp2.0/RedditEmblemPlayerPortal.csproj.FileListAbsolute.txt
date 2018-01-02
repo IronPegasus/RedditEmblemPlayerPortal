@@ -1,0 +1,24 @@
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.deps.json
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.runtimeconfig.json
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.runtimeconfig.dev.json
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.dll
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.pdb
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.csprojResolveAssemblyReference.cache
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.csproj.CoreCompileInputs.cache
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.AssemblyInfoInputs.cache
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.AssemblyInfo.cs
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.dll
+C:\Users\Anna\Documents\Visual Studio 2017\Projects\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.pdb
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.deps.json
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.runtimeconfig.json
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.runtimeconfig.dev.json
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.dll
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.pdb
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.csprojResolveAssemblyReference.cache
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.csproj.CoreCompileInputs.cache
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.AssemblyInfoInputs.cache
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.AssemblyInfo.cs
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.dll
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\obj\Debug\netcoreapp2.0\RedditEmblemPlayerPortal.pdb
+C:\Users\Anna\Documents\RedditEmblemRepos\RedditEmblemPlayerPortal\RedditEmblemPlayerPortal\bin\Debug\netcoreapp2.0\Discord.OAuth2.dll
