@@ -6,7 +6,7 @@ namespace RedditEmblemPlayerPortal.Services
 {
   public interface ICharacterData
   {
-    Character Add(Character character);
-    Character Get(int id);
+    Unit Add(Unit character);
+    Unit Get(int id);
   }
 }

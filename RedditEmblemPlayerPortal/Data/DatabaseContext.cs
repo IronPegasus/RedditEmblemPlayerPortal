@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RedditEmblemPlayerPortal.Models;
 using RedditEmblemPlayerPortal.Models.Teams;
+using RedditEmblemPlayerPortal.Models.Teams.System;
 using RedditEmblemPlayerPortal.Models.Users;
 
 namespace RedditEmblemPlayerPortal.Data
@@ -29,8 +30,17 @@ namespace RedditEmblemPlayerPortal.Data
       builder.Entity<xTeamReviewer>()
         .HasKey(x => new { x.TeamId, x.UserId });
 
-      builder.Entity<CharacterStat>()
+      builder.Entity<UnitStat>()
         .HasKey(x => new { x.CharacterId, x.TeamStatId });
+
+      builder.Entity<xClassTag>()
+        .HasKey(x => new { x.UnitClassId, x.TagId });
+
+      builder.Entity<xTeamWeaponClass>()
+        .HasKey(x => new { x.TeamId, x.WeaponClassId });
+
+      builder.Entity<xUnitClassPromotion>()
+        .HasKey(x => new { x.PromotesFrom, x.PromotesTo });
 
       //Enforcing uniqueness on certain attributes
       builder.Entity<User>()
@@ -39,6 +49,10 @@ namespace RedditEmblemPlayerPortal.Data
 
       builder.Entity<Role>()
         .HasIndex(r => r.Name)
+        .IsUnique();
+
+      builder.Entity<WeaponClass>()
+        .HasIndex(w => w.Name)
         .IsUnique();
     }
 

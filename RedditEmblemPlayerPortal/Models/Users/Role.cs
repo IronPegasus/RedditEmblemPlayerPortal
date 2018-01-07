@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RedditEmblemPlayerPortal.Models.Users
 {
@@ -13,7 +12,7 @@ namespace RedditEmblemPlayerPortal.Models.Users
     /// <summary>A unique string used to identify a role to a user.</summary>
     public string Name { get; set; }
 
-    public virtual ICollection<xUserRole> xUserRoles { get; set; }
+    public virtual List<xUserRole> xUserRoles { get; set; }
 
     [Required]
     [DefaultValue("true")]

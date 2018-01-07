@@ -1,8 +1,9 @@
-﻿using RedditEmblemPlayerPortal.Models.Users;
+﻿using RedditEmblemPlayerPortal.Models.Teams.System;
+using RedditEmblemPlayerPortal.Models.Teams.System.Skills;
+using RedditEmblemPlayerPortal.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RedditEmblemPlayerPortal.Models.Teams
 {
@@ -34,18 +35,25 @@ namespace RedditEmblemPlayerPortal.Models.Teams
     public TeamStatus TeamStatus { get; set; }
 
     /// <summary>A list of GMs assigned to the team</summary>
-    public virtual ICollection<xTeamGM> GMs { get; set; }
+    public virtual List<xTeamGM> GMs { get; set; }
 
     /// <summary>A list of GMAs assigned to the team</summary>
-    public virtual ICollection<xTeamGMA> GMAs { get; set; }
+    public virtual List<xTeamGMA> GMAs { get; set; }
 
     /// <summary>A list of reviewers assigned to the team</summary>
-    public virtual ICollection<xTeamReviewer> Reviewers { get; set; }
+    public virtual List<xTeamReviewer> Reviewers { get; set; }
 
-    /// <summary>A list of players assigned to this team</summary>
-    public IEnumerable<TeamPlayer> Players { get; set; }
+    /// <summary>A list of players assigned to the team</summary>
+    public List<TeamPlayer> Players { get; set; }
 
-    /// <summary>A list of the stats for this team</summary>
-    public IEnumerable<TeamStat> Stats { get; set; }
+    /// <summary>A list of the classes available on the team</summary>
+    public List<UnitClass> Classes { get; set; }
+
+    public List<Skill> Skills { get; set; }
+
+    /// <summary>A list of the stats for the team</summary>
+    public List<TeamStat> Stats { get; set; }
+
+    public virtual List<xTeamWeaponClass> WeaponClasses { get; set; }
   }
 }

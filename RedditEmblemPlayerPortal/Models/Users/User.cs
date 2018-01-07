@@ -18,15 +18,15 @@ namespace RedditEmblemPlayerPortal.Models.Users
     public DateTime LastLogin { get; set; } = DateTime.Now; //default date value
 
     /// <summary>A list of Roles possessed by this user</summary>
-    public virtual ICollection<xUserRole> Roles { get; set; }
+    public virtual List<xUserRole> Roles { get; set; }
 
     /// <summary>A list of Teams where the user is a GM</summary>
-    public virtual ICollection<xTeamGM> GMRoles { get; set; }
+    public virtual List<xTeamGM> GMRoles { get; set; }
 
     /// <summary>A list of Teams where the user is a GMA</summary>
-    public virtual ICollection<xTeamGMA> GMARole { get; set; }
+    public virtual List<xTeamGMA> GMARole { get; set; }
 
     /// <summary>A list of Teams where the user is a reviwer</summary>
-    public virtual ICollection<xTeamReviewer> ReviewerRoles { get; set; }
+    public virtual List<xTeamReviewer> ReviewerRoles { get; set; }
   }
 }

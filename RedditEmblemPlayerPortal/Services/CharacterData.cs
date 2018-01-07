@@ -17,14 +17,14 @@ namespace RedditEmblemPlayerPortal.Services
       _context = dbContext;
     }
 
-    public Character Add(Character character)
+    public Unit Add(Unit character)
     {
       //_context.Characters.Add(character);
       //_context.SaveChanges();
       return character;
     }
 
-    public Character Get(int id)
+    public Unit Get(int id)
     {
       return null; //return _context.Characters.FirstOrDefault(x => x.CharacterId == id);
     }

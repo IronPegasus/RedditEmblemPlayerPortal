@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RedditEmblemPlayerPortal.Models
 {
-  public class CharacterStat
+  public class UnitStat
   {
     [ForeignKey("Character")]
     public int CharacterId { get; set; }
     /// <summary>The character that owns the stat</summary>
-    public Character Character { get; set; }
+    public Unit Character { get; set; }
 
     [ForeignKey("TeamStat")]
     public int TeamStatId { get; set; }

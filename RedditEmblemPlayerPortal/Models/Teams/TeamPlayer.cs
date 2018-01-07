@@ -17,6 +17,6 @@ namespace RedditEmblemPlayerPortal.Models.Teams
     [ForeignKey("Character")]
     public int CharacterId { get; set; }
     /// <summary>The character owned by the player instance</summary>
-    public Character Character { get; set; }
+    public Unit Character { get; set; }
   }
 }
