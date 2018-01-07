@@ -14,18 +14,15 @@ namespace RedditEmblemPlayerPortal.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IEmailSender _emailSender;
+        private readonly UserManager<DiscordUserToken> _userManager;
+        private readonly SignInManager<DiscordUserToken> _signInManager;
 
         public IndexModel(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
-            IEmailSender emailSender)
+            UserManager<DiscordUserToken> userManager,
+            SignInManager<DiscordUserToken> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _emailSender = emailSender;
         }
 
         public string Username { get; set; }
@@ -119,7 +116,6 @@ namespace RedditEmblemPlayerPortal.Pages.Account.Manage
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-            await _emailSender.SendEmailConfirmationAsync(user.Email, callbackUrl);
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToPage();

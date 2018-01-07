@@ -12,12 +12,12 @@ namespace RedditEmblemPlayerPortal.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<DiscordUserToken> _userManager;
+        private readonly SignInManager<DiscordUserToken> _signInManager;
 
         public SetPasswordModel(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            UserManager<DiscordUserToken> userManager,
+            SignInManager<DiscordUserToken> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

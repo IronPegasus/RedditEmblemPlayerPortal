@@ -9,6 +9,8 @@ using RedditEmblemPlayerPortal.Services;
 using Microsoft.AspNetCore.Mvc;
 using Discord.OAuth2;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Rewrite;
+using RedditEmblemPlayerPortal.Models;
 
 namespace RedditEmblemPlayerPortal
 {
@@ -24,13 +26,13 @@ namespace RedditEmblemPlayerPortal
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-      services.AddDbContext<ApplicationDbContext>(options =>
+      //Database context and entity framework
+      services.AddDbContext<DatabaseContext>(options =>
           options.UseSqlServer(Configuration.GetConnectionString("RedditEmblemDatabase")));
 
-      services.AddIdentity<ApplicationUser, IdentityRole>()
-          .AddEntityFrameworkStores<ApplicationDbContext>()
-          .AddDefaultTokenProviders();
+      //services.AddScoped<IUserData, UserData>();
 
+      //MVC
       services.AddMvc()
           .AddRazorPagesOptions(options =>
           {
@@ -38,23 +40,28 @@ namespace RedditEmblemPlayerPortal
             options.Conventions.AuthorizePage("/Account/Logout");
           });
 
-      services.AddAuthentication()
+      services.Configure<MvcOptions>(options =>
+      {
+        options.Filters.Add(new RequireHttpsAttribute());
+      });
+
+      //User authentication
+      services.AddAuthentication(options =>
+      {
+        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+      })
         .AddDiscord(x =>
         {
           x.AppId = Configuration["Discord:ClientId"];
           x.AppSecret = Configuration["Discord:ClientSecret"];
           x.Scope.Add("guilds");
           x.CallbackPath = "/Account/DiscordCallback";
-        });
+        })
+        .AddCookie();
 
-      services.Configure<MvcOptions>(options =>
-      {
-        options.Filters.Add(new RequireHttpsAttribute());
-      });
-
-      // Register no-op EmailSender used by account confirmation and password reset during development
-      // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
-      services.AddSingleton<IEmailSender, EmailSender>();
+      services.AddIdentity<DiscordUserToken, IdentityRole>()
+         //.AddEntityFrameworkStores<DatabaseContext>()
+         .AddDefaultTokenProviders();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,8 +78,12 @@ namespace RedditEmblemPlayerPortal
         app.UseExceptionHandler("/Error");
       }
 
+      app.UseRewriter(new RewriteOptions().AddRedirectToHttpsPermanent());
+
       app.UseStaticFiles();
-      
+
+      app.UseAuthentication();
+
       app.UseMvc(routes =>
             {
               routes.MapRoute(

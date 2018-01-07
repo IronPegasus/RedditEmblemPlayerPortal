@@ -12,11 +12,11 @@ namespace RedditEmblemPlayerPortal.Pages.Account.Manage
 {
     public class ResetAuthenticatorModel : PageModel
     {
-        UserManager<ApplicationUser> _userManager;
+        UserManager<DiscordUserToken> _userManager;
         ILogger<ResetAuthenticatorModel> _logger;
 
         public ResetAuthenticatorModel(
-            UserManager<ApplicationUser> userManager,
+            UserManager<DiscordUserToken> userManager,
             ILogger<ResetAuthenticatorModel> logger)
         {
             _userManager = userManager;

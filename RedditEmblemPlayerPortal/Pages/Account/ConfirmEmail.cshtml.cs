@@ -11,9 +11,9 @@ namespace RedditEmblemPlayerPortal.Pages.Account
 {
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<DiscordUserToken> _userManager;
 
-        public ConfirmEmailModel(UserManager<ApplicationUser> userManager)
+        public ConfirmEmailModel(UserManager<DiscordUserToken> userManager)
         {
             _userManager = userManager;
         }

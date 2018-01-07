@@ -12,13 +12,11 @@ namespace RedditEmblemPlayerPortal.Pages.Account
 {
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IEmailSender _emailSender;
+        private readonly UserManager<DiscordUserToken> _userManager;
 
-        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, IEmailSender emailSender)
+        public ForgotPasswordModel(UserManager<DiscordUserToken> userManager)
         {
             _userManager = userManager;
-            _emailSender = emailSender;
         }
 
         [BindProperty]
@@ -46,7 +44,6 @@ namespace RedditEmblemPlayerPortal.Pages.Account
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
-                await _emailSender.SendResetPasswordAsync(Input.Email, callbackUrl);
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
 

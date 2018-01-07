@@ -1,7 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 @using RedditEmblemPlayerPortal.Data
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<DiscordUserToken> SignInManager
+@inject UserManager<DiscordUserToken> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

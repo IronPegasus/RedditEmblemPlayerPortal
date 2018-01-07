@@ -1,2 +1,4 @@
 .vs/
 RedditEmblemPlayerPortal/appsettings.json
+RedditEmblemPlayerPortal/bin/
+RedditEmblemPlayerPortal/Migrations/
