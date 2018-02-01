@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditEmblemPlayerPortal", "RedditEmblemPlayerPortal\RedditEmblemPlayerPortal.csproj", "{89AE14A9-4B0E-4A85-88B6-4929F0D28696}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedditEmblemPlayerPortal", "RedditEmblemPlayerPortal\RedditEmblemPlayerPortal.csproj", "{CC435255-4925-4A3A-95B0-3027380F0209}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{89AE14A9-4B0E-4A85-88B6-4929F0D28696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89AE14A9-4B0E-4A85-88B6-4929F0D28696}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89AE14A9-4B0E-4A85-88B6-4929F0D28696}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89AE14A9-4B0E-4A85-88B6-4929F0D28696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC435255-4925-4A3A-95B0-3027380F0209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC435255-4925-4A3A-95B0-3027380F0209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC435255-4925-4A3A-95B0-3027380F0209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC435255-4925-4A3A-95B0-3027380F0209}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2588F722-2594-49FD-944B-76ABD58DA705}
+		SolutionGuid = {4109BF4C-8C83-4C9A-BA17-99131CBFE96B}
 	EndGlobalSection
 EndGlobal

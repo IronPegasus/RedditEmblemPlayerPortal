@@ -12,6 +12,6 @@ namespace RedditEmblemPlayerPortal.Models.Teams
     public string Name { get; set; }
 
     /// <summary>A list of the teams that the weapon class is available in</summary>
-    public virtual List<Team> Teams { get; set; }
+    public virtual ICollection<Team> Teams { get; set; }
   }
 }

@@ -5,13 +5,11 @@ namespace RedditEmblemPlayerPortal.Models.Teams
 {
   public class TeamStatValue
   {
+    public int TeamStatValueId { get; set; }
+
     [ForeignKey("TeamStat")]
     public int TeamStatId { get; set; }
     public TeamStat TeamStat { get; set; }
-
-    [ForeignKey("UnitClass")]
-    public int UnitClassId { get; set; }
-    public UnitClass Class { get; set; }
 
     [Required]
     /// <summary>The value of the stat</summary>

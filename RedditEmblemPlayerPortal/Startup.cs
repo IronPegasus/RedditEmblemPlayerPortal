@@ -7,10 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RedditEmblemPlayerPortal.Data;
 using RedditEmblemPlayerPortal.Services;
 using Microsoft.AspNetCore.Mvc;
-using Discord.OAuth2;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Rewrite;
-using RedditEmblemPlayerPortal.Models;
 
 namespace RedditEmblemPlayerPortal
 {
@@ -27,41 +24,43 @@ namespace RedditEmblemPlayerPortal
     public void ConfigureServices(IServiceCollection services)
     {
       //Database context and entity framework
-      services.AddDbContext<DatabaseContext>(options =>
+      services.AddDbContext<ApplicationDbContext>(options =>
           options.UseSqlServer(Configuration.GetConnectionString("RedditEmblemDatabase")));
 
-      //services.AddScoped<IUserData, UserData>();
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
 
-      //MVC
+      //Reroute user to Discord login if they try to access the app without authenticating
+      services.ConfigureApplicationCookie(options => 
+      {
+        options.LoginPath = "/Account/ExternalLogin";
+      });
+
+      services.AddAuthentication()
+        .AddDiscord(x =>
+        {
+          x.AppId = Configuration["Discord:ClientId"];
+          x.AppSecret = Configuration["Discord:ClientSecret"];
+          x.Scope.Add("guilds");
+          x.CallbackPath = "/ExternalLogin/Callback";
+        });
+
+      //Require authentication for Angular app
       services.AddMvc()
-          .AddRazorPagesOptions(options =>
-          {
-            options.Conventions.AuthorizeFolder("/Account/Manage");
-            options.Conventions.AuthorizePage("/Account/Logout");
-          });
+        .AddRazorPagesOptions(options =>
+        {
+          options.Conventions.AuthorizePage("/Angular");
+        });
 
       services.Configure<MvcOptions>(options =>
       {
         options.Filters.Add(new RequireHttpsAttribute());
       });
 
-      //User authentication
-      services.AddAuthentication(options =>
-      {
-        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-      })
-        .AddDiscord(x =>
-        {
-          x.AppId = Configuration["Discord:ClientId"];
-          x.AppSecret = Configuration["Discord:ClientSecret"];
-          x.Scope.Add("guilds");
-          x.CallbackPath = "/Account/DiscordCallback";
-        })
-        .AddCookie();
-
-      services.AddIdentity<DiscordUserToken, IdentityRole>()
-         //.AddEntityFrameworkStores<DatabaseContext>()
-         .AddDefaultTokenProviders();
+      // Register no-op EmailSender used by account confirmation and password reset during development
+      // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
+      services.AddSingleton<IEmailSender, EmailSender>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,8 +68,8 @@ namespace RedditEmblemPlayerPortal
     {
       if (env.IsDevelopment())
       {
-        app.UseDeveloperExceptionPage();
         app.UseBrowserLink();
+        app.UseDeveloperExceptionPage();
         app.UseDatabaseErrorPage();
       }
       else
@@ -85,11 +84,11 @@ namespace RedditEmblemPlayerPortal
       app.UseAuthentication();
 
       app.UseMvc(routes =>
-            {
-              routes.MapRoute(
-                      name: "default",
-                      template: "{controller}/{action=Index}/{id?}");
-            });
+      {
+        routes.MapRoute(
+                name: "default",
+                template: "{controller}/{action=Index}/{id?}");
+      });
     }
   }
 }

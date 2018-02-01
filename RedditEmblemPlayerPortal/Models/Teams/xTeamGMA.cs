@@ -1,4 +1,4 @@
-﻿using RedditEmblemPlayerPortal.Models.Users;
+﻿using RedditEmblemPlayerPortal.Data;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RedditEmblemPlayerPortal.Models.Teams
@@ -9,8 +9,8 @@ namespace RedditEmblemPlayerPortal.Models.Teams
     public int TeamId { get; set; }
     public Team Team { get; set; }
 
-    [ForeignKey("User")]
+    [ForeignKey("ApplicationUser")]
     public int UserId { get; set; }
-    public User User { get; set; }
+    public ApplicationUser User { get; set; }
   }
 }

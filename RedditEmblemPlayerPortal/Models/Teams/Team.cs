@@ -1,6 +1,6 @@
-﻿using RedditEmblemPlayerPortal.Models.Teams.System;
+﻿using RedditEmblemPlayerPortal.Data;
+using RedditEmblemPlayerPortal.Models.Teams.System;
 using RedditEmblemPlayerPortal.Models.Teams.System.Skills;
-using RedditEmblemPlayerPortal.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -21,7 +21,7 @@ namespace RedditEmblemPlayerPortal.Models.Teams
 
     [Required]
     /// <summary>The user that created the team</summary>
-    public User CreatedBy { get; set; }
+    public ApplicationUser CreatedBy { get; set; }
 
     [Required]
     /// <summary>The date and time on which the team instance was created</summary>
@@ -29,7 +29,7 @@ namespace RedditEmblemPlayerPortal.Models.Teams
 
     [Required]
     /// <summary>The user that currently owns the team</summary>
-    public User OwnedBy { get; set; }
+    public ApplicationUser OwnedBy { get; set; }
 
     [Required]
     public TeamStatus TeamStatus { get; set; }

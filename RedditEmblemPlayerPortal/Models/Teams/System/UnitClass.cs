@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RedditEmblemPlayerPortal.Models.Teams.System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace RedditEmblemPlayerPortal.Models.Teams
@@ -12,24 +13,24 @@ namespace RedditEmblemPlayerPortal.Models.Teams
     public string Name { get; set; }
 
     /// <summary>A list of all the stat bases for this class</summary>
-    public IEnumerable<TeamStatValue> StatBases { get; set; }
+    public List<TeamStatValue> StatBases { get; set; }
 
     /// <summary>A list of all the stat caps for this class</summary>
-    public IEnumerable<TeamStatValue> StatCaps { get; set; }
+    public List<TeamStatValue> StatCaps { get; set; }
 
     /// <summary>A list of all the stat growths for this class</summary>
-    public IEnumerable<TeamStatGrowth> StatGrowths { get; set; }
+    public List<TeamStatGrowth> StatGrowths { get; set; }
 
     /// <summary>A list of the weapon classes usable by this class</summary>
-    public virtual List<WeaponClass> WeaponClasses { get; set; }
+    public List<WeaponClass> WeaponClasses { get; set; }
 
     /// <summary>A list of the classes that this class is available as a promotion for</summary>
-    public virtual List<xUnitClassPromotion> PromotesFrom { get; set; }
+    public List<UnitClass> PromotesFrom { get; set; }
 
     /// <summary>A list of the classes that this class is available to promote to</summary>
-    public virtual List<xUnitClassPromotion> PromotesTo { get; set; }
+    public List<UnitClass> PromotesTo { get; set; }
 
     /// <summary>A list of tags associated with this class</summary>
-    public virtual List<xClassTag> Tags { get; set; }
+    public virtual ICollection<xClassTag> Tags { get; set; }
   }
 }

@@ -6,13 +6,13 @@ namespace RedditEmblemPlayerPortal.Models.Users
 {
   public class Role
   {
-    public int RoleId { get; set; }
+    public int RoleID { get; set; }
 
     [Required, MaxLength(32)]
     /// <summary>A unique string used to identify a role to a user.</summary>
     public string Name { get; set; }
 
-    public virtual List<xUserRole> xUserRoles { get; set; }
+    public virtual ICollection<xUserRole> xUserRoles { get; set; }
 
     [Required]
     [DefaultValue("true")]
