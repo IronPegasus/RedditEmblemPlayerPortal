@@ -15,8 +15,6 @@ namespace RedditEmblemPlayerPortal.Data
 {
   public class DiscordQuery
   {
-    private static string RE_GUILD_ID = "393848757592129546"; //"153767654270697473";
-
     private static IConfiguration _configuration;
 
     internal static void Configure(IConfiguration configuration)
@@ -48,7 +46,7 @@ namespace RedditEmblemPlayerPortal.Data
 
     public static bool IsUserREMember(string userId)
     {
-      string json = ExecuteHttpRequestBot("GET", QUERY_GUILD_MEMBERS, new string[] { RE_GUILD_ID });
+      string json = ExecuteHttpRequestBot("GET", QUERY_GUILD_MEMBERS, new string[] { _configuration["Discord:GuildID"] });
       List<DiscordGuildMember> guilds = JsonConvert.DeserializeObject<List<DiscordGuildMember>>(json);
       return guilds.Any(x => x.User.ID.Equals(userId));
     }

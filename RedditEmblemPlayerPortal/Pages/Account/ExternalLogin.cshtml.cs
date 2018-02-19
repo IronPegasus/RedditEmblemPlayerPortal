@@ -56,7 +56,7 @@ namespace RedditEmblemPlayerPortal.Pages.Account
       {
         await _signInManager.UpdateExternalAuthenticationTokensAsync(info);
         _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
-        return RedirectToPage("../Angular");
+        return RedirectToPage("../Index");
       }
       if (result.IsLockedOut)
       {

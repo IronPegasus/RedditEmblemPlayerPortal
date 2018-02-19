@@ -6,21 +6,23 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <img src="@await UserManager.GetDiscordAvatarURL(User)" width="30" height="30" alt="" />
-            <a>Hello @await UserManager.GetDiscordUsername(User)!</a>
-          </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
-            </li>
-        </ul>
-    </form>
+  <div class="navbar-header">
+    <h4 class="form-inline navbar-btn navbar-link">
+      <img src="@await UserManager.GetDiscordAvatarURL(User)" class="avatarSmall" onerror="this.src='images/discordavatardefault.jpg';" alt="Discord Avatar" />
+      <span style="padding-left: 5px;">@await UserManager.GetDiscordUsername(User)</span>
+    </h4>
+  </div>
+  <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm">
+    <ul class="nav navbar-right">
+      <li>
+        <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+      </li>
+    </ul>
+  </form>
 }
 else
 {
-    <li>
-      <a class="navbar-brand" href="/Index">Reddit Emblem Player Portal</a>
-    </li>
+  <li>
+    <a class="navbar-brand" href=".">Reddit Emblem Player Portal</a>
+  </li>
 }

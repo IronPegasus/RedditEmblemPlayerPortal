@@ -1,7 +1,16 @@
 ﻿@page
 @model IndexModel
+@inject SignInManager<ApplicationUser> SignInManager
 
-<ul class="nav navbar-nav navbar-right">
-  <li><a asp-page="/About">About</a></li>
-  <li><a asp-page="/Account/ExternalLogin" method="post">Log In</a></li>
-</ul>
+@if (SignInManager.IsSignedIn(User))
+{
+  <span>Hello!</span>
+  <app-root></app-root>
+}
+else
+{
+  <ul class="nav navbar-nav navbar-right">
+    <li><a asp-page="/About">About</a></li>
+    <li><a asp-page="/Account/ExternalLogin" method="post">Log In</a></li>
+  </ul>
+}

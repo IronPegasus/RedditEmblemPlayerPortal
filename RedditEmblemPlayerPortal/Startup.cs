@@ -51,11 +51,7 @@ namespace RedditEmblemPlayerPortal
         });
 
       //Require authentication for Angular app
-      services.AddMvc()
-        .AddRazorPagesOptions(options =>
-        {
-          options.Conventions.AuthorizePage("/Angular");
-        });
+      services.AddMvc();
 
       services.Configure<MvcOptions>(options =>
       {
