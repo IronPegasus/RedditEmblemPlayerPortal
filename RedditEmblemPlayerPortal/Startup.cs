@@ -8,6 +8,10 @@ using RedditEmblemPlayerPortal.Data;
 using RedditEmblemPlayerPortal.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Rewrite;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using RedditEmblemPlayerPortal.Extensions;
 
 namespace RedditEmblemPlayerPortal
 {
@@ -42,8 +46,8 @@ namespace RedditEmblemPlayerPortal
         {
           x.AppId = Configuration["Discord:ClientId"];
           x.AppSecret = Configuration["Discord:ClientSecret"];
-          x.Scope.Add("guilds");
           x.CallbackPath = "/ExternalLogin/Callback";
+          x.SaveTokens = true;
         });
 
       //Require authentication for Angular app
@@ -58,13 +62,14 @@ namespace RedditEmblemPlayerPortal
         options.Filters.Add(new RequireHttpsAttribute());
       });
 
+      DiscordQuery.Configure(Configuration);
+
       // Register no-op EmailSender used by account confirmation and password reset during development
       // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
-      services.AddSingleton<IEmailSender, EmailSender>();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, IHttpContextAccessor context)
     {
       if (env.IsDevelopment())
       {

@@ -14,12 +14,6 @@ namespace RedditEmblemPlayerPortal.Pages.Account
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly ILogger<ExternalLoginModel> _logger;
 
-    //Discord Claim Types
-    private const string DiscordUserId = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
-    private const string DiscordUsername = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name";
-    private const string DiscordDiscriminator = "urn:discord:discriminator";
-    private const string DiscordAvatar = "urn:discord:avatar";
-
     public ExternalLoginModel(
         SignInManager<ApplicationUser> signInManager,
         UserManager<ApplicationUser> userManager,
@@ -60,6 +54,7 @@ namespace RedditEmblemPlayerPortal.Pages.Account
       var result = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
       if (result.Succeeded)
       {
+        await _signInManager.UpdateExternalAuthenticationTokensAsync(info);
         _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
         return RedirectToPage("../Angular");
       }
@@ -69,13 +64,14 @@ namespace RedditEmblemPlayerPortal.Pages.Account
       }
       else
       {
-        // If the user does not have an account, then ask the user to create an account.
+        // If the user does not have an account, then create one
         var user = new ApplicationUser
         {
-          UserName = info.Principal.Claims.First(x => x.Type.Equals(DiscordUserId)).Value,
-          DiscordUsername = info.Principal.Claims.First(x => x.Type.Equals(DiscordUsername)).Value,
-          DiscordAvatar = info.Principal.Claims.First(x => x.Type.Equals(DiscordAvatar)).Value
+          UserName = info.Principal.Claims.First(x => x.Type.Equals(Constants.DiscordUserId)).Value
         };
+
+        if (!DiscordQuery.IsUserREMember(user.UserName))
+          return RedirectToPage("../LoginFailure");
 
         var userResult = await _userManager.CreateAsync(user);
         if (userResult.Succeeded)
@@ -84,6 +80,8 @@ namespace RedditEmblemPlayerPortal.Pages.Account
           if (userResult.Succeeded)
           {
             await _signInManager.SignInAsync(user, isPersistent: false);
+            await _signInManager.UpdateExternalAuthenticationTokensAsync(info);
+
             _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
             return RedirectToPage("../Angular");
           }

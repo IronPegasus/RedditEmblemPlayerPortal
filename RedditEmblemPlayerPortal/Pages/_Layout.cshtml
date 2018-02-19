@@ -16,16 +16,13 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <span>Reddit Emblem Player Portal</span>
-            </div>
-            <div class="navbar-collapse collapse">
-                @await Html.PartialAsync("_LoginPartial")
-            </div>
+<body style="margin: 0; padding: 0;">
+    <nav class="navbar navbar-inverse sticky-top">
+      <div class="container">
+        <div class="navbar-header">
+          @await Html.PartialAsync("_LoginPartial")
         </div>
+      </div>
     </nav>
     <div class="container body-content">
         @RenderBody()
