@@ -2,9 +2,10 @@
 RedditEmblemPlayerPortal/appsettings.json
 RedditEmblemPlayerPortal/bin/
 RedditEmblemPlayerPortal/Migrations/
-RedditEmblemPlayerPortal/obj/
+RedditEmblemPlayerPortal/obj/Debug/
 RedditEmblemPlayerPortal/angular-app/node_modules
 RedditEmblemPlayerPortal/RedditEmblemPlayerPortal.csproj.user
 RedditEmblemPlayerPortal/angular-app/dist/
 RedditEmblemPlayerPortal/wwwroot/js/*.js.map
 RedditEmblemPlayerPortal/angular-app/src/index.html
+RedditEmblemPlayerPortal/obj/RedditEmblemPlayerPortal.csproj.nuget.cache
