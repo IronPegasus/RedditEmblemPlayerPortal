@@ -5,7 +5,8 @@ RedditEmblemPlayerPortal/Migrations/
 RedditEmblemPlayerPortal/obj/Debug/
 RedditEmblemPlayerPortal/angular-app/node_modules
 RedditEmblemPlayerPortal/RedditEmblemPlayerPortal.csproj.user
-RedditEmblemPlayerPortal/angular-app/dist/
 RedditEmblemPlayerPortal/wwwroot/js/*.js.map
 RedditEmblemPlayerPortal/angular-app/src/index.html
-RedditEmblemPlayerPortal/obj/RedditEmblemPlayerPortal.csproj.nuget.cache
+RedditEmblemPlayerPortal/angular-app/dist/out-tsc/app/*.js.map
+RedditEmblemPlayerPortal/angular-app/dist/out-tsc/*.js.map
+RedditEmblemPlayerPortal/angular-app/dist/out-tsc/environments/*.js.map
