@@ -21,10 +21,10 @@
       <HintPath>Libraries\Discord.OAuth2.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
     <Exec Command="dotnet bundle" />
   </Target>
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)' == 'Debug'">
     <Exec Command="cd angular-app &amp; ng build" />
   </Target>
 </Project>
