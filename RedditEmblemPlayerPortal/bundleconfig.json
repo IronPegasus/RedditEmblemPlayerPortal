@@ -14,5 +14,20 @@
     },
     // Optionally generate .map file
     "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/angular.min.js",
+    "inputFiles": [
+      "wwwroot/js/inline.bundle.js",
+      "wwwroot/js/main.bundle.js",
+      "wwwroot/js/polyfills.bundle.js",
+      "wwwroot/js/styles.bundle.js",
+      "wwwroot/js/vendor.bundle.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
   }
 ]

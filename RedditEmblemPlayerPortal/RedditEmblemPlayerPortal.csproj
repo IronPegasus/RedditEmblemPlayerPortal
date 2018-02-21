@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <UserSecretsId>aspnet-RedditEmblemPlayerPortal-CB289048-CE20-46D9-9060-1969D1FA72A7</UserSecretsId>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
@@ -20,4 +21,10 @@
       <HintPath>Libraries\Discord.OAuth2.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="dotnet bundle" />
+  </Target>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="cd angular-app &amp; ng build" />
+  </Target>
 </Project>
