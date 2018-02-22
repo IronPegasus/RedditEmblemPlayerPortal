@@ -1,0 +1,10 @@
+﻿<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Team {{teamLetter}}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <span *ngFor="let GM of teamGMs; index as i; last as isLast">
+        <span *ngIf="i > 0 && teamGMs.length > 2">,</span> <span *ngIf="i > 0 && isLast">& </span>{{GM}}
+      </span>
+    </h6>
+  </div>
+</div>

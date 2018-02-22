@@ -1,0 +1,5 @@
+﻿<div class="row">
+  <div *ngFor="let card of teamCards" class="col-md-3" style="margin-top: 5px; margin-bottom: 5px;">
+    <team-card [teamLetter]="card.teamLetter" [teamGMs]="card.teamGMs"></team-card>
+  </div>
+</div>
