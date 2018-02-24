@@ -9,7 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.teamCards = [
+        this.myTeamTitle = "My Teams";
+        this.myWorkshopTitle = "My Workshops";
+        this.allTeamsTitle = "All Teams";
+        this.myTeams = [
             {
                 'teamLetter': 'T',
                 'teamGMs': ['IronPegasus', 'Leo']
@@ -19,16 +22,36 @@ var AppComponent = /** @class */ (function () {
                 'teamGMs': ['Mappy', 'Skywolf']
             },
             {
-                'teamLetter': 'K',
-                'teamGMs': ['LadyDeme']
+                'teamLetter': 'A',
+                'teamGMs': ['Mappy', 'Skywolf']
             },
             {
-                'teamLetter': 'G',
-                'teamGMs': ['Shira', 'Don']
+                'teamLetter': 'A',
+                'teamGMs': ['Mappy', 'Skywolf']
             },
             {
-                'teamLetter': 'M',
-                'teamGMs': ['GM #1', 'GM #2', 'GM #3']
+                'teamLetter': 'A',
+                'teamGMs': ['Mappy', 'Skywolf']
+            },
+            {
+                'teamLetter': 'A',
+                'teamGMs': ['Mappy', 'Skywolf']
+            }
+        ];
+        this.myWorkshops = [
+            {
+                'teamLetter': 'Fairytale',
+                'teamGMs': ['IronPegasus'],
+            }
+        ];
+        this.allTeams = [
+            {
+                'teamLetter': 'F',
+                'teamGMs': ['IYamAHobo'],
+            },
+            {
+                'teamLetter': 'L',
+                'teamGMs': ['Nobody'],
             }
         ];
     }

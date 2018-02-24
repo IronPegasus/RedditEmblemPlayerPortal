@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  teamCards: any[] = [
+  myTeamTitle: string = "My Teams";
+  myWorkshopTitle: string = "My Workshops";
+  allTeamsTitle: string = "All Teams";
+
+   myTeams: any[] = [
     {
       'teamLetter': 'T',
       'teamGMs' : ['IronPegasus', 'Leo']
@@ -16,16 +20,36 @@ export class AppComponent {
       'teamGMs': ['Mappy', 'Skywolf']
     },
     {
-      'teamLetter': 'K',
-      'teamGMs': ['LadyDeme']
+      'teamLetter': 'A',
+      'teamGMs': ['Mappy', 'Skywolf']
     },
     {
-      'teamLetter': 'G',
-      'teamGMs': ['Shira', 'Don']
+      'teamLetter': 'A',
+      'teamGMs': ['Mappy', 'Skywolf']
     },
     {
-      'teamLetter': 'M',
-      'teamGMs': ['GM #1', 'GM #2', 'GM #3']
+      'teamLetter': 'A',
+      'teamGMs': ['Mappy', 'Skywolf']
+    },
+    {
+      'teamLetter': 'A',
+      'teamGMs': ['Mappy', 'Skywolf']
     }
   ];
+   myWorkshops: any[] = [
+     {
+       'teamLetter': 'Fairytale',
+       'teamGMs': ['IronPegasus'],
+     }
+   ];
+   allTeams: any[] = [
+     {
+       'teamLetter': 'F',
+       'teamGMs': ['IYamAHobo'],
+     },
+     {
+       'teamLetter': 'L',
+       'teamGMs': ['Nobody'],
+     }
+   ];
 }

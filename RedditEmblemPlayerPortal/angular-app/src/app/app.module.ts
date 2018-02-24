@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { TeamCardComponent } from './team-card/team-card.component';
+import { TeamListComponent } from './team-list/team-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamCardComponent
+    TeamCardComponent,
+    TeamListComponent
   ],
   imports: [
     BrowserModule

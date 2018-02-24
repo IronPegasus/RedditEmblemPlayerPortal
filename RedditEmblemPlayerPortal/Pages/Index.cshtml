@@ -8,8 +8,12 @@
 }
 else
 {
-  <ul class="nav navbar-nav navbar-right">
-    <li><a asp-page="/About">About</a></li>
-    <li><a asp-page="/Account/ExternalLogin" method="post">Log In</a></li>
-  </ul>
+  <div style="padding: 10px; text-align: center;">
+    <div>
+      <a class="btn btn-primary" asp-page="/Account/ExternalLogin" method="post" aria-label="Login"><i class="fas fa-sign-in-alt fa-sm"></i> Log In</a>
+    </div>
+    <div style="padding-top: 5px;">
+      <a class="btn btn-primary" asp-page="/About" aria-label="About"><i class="fas fa-question-circle fa-sm"></i> About</a>
+    </div>
+  </div>
 }
