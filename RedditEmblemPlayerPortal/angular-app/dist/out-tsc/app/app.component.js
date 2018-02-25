@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var team_card_1 = require("../models/teams/team-card");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.myTeamTitle = "My Teams";
@@ -15,64 +16,16 @@ var AppComponent = /** @class */ (function () {
         this.true = true;
         this.false = false;
         this.myTeams = [
-            {
-                'teamLetter': 'T',
-                'teamGMs': 'IronPegasus & Leo',
-                'currentActivity': 'Chapter 12',
-                'appsOpen': true
-            },
-            {
-                'teamLetter': 'A',
-                'teamGMs': 'Mappy & Skywolf',
-                'currentActivity': 'Homebase: A Town',
-                'appsOpen': false
-            },
-            {
-                'teamLetter': 'A',
-                'teamGMs': 'Mappy & Skywolf',
-                'currentActivity': 'Homebase: A Town',
-                'appsOpen': false
-            },
-            {
-                'teamLetter': 'A',
-                'teamGMs': 'Mappy & Skywolf',
-                'currentActivity': 'Homebase: A Town',
-                'appsOpen': true
-            },
-            {
-                'teamLetter': 'A',
-                'teamGMs': 'Mappy & Skywolf',
-                'currentActivity': 'Homebase: A Town',
-                'appsOpen': false
-            },
-            {
-                'teamLetter': 'A',
-                'teamGMs': 'Mappy & Skywolf',
-                'currentActivity': 'Homebase: A Town',
-                'appsOpen': false
-            }
+            new team_card_1.TeamCard('T', 'IronPegasus & Leo', 'Chapter 12', true),
+            new team_card_1.TeamCard('A', 'Mappy & SkyWolf', 'Chapter 5', false),
+            new team_card_1.TeamCard('G', 'Shiraho & Don Quixote', 'Chapter 5', false)
         ];
         this.myWorkshops = [
-            {
-                'teamLetter': 'Fairytale',
-                'teamGMs': 'IronPegasus & LadyDeme',
-                'currentActivity': '',
-                'appsOpen': false
-            }
+            new team_card_1.TeamCard('Bird', 'IronPegasus', '', false)
         ];
         this.allTeams = [
-            {
-                'teamLetter': 'F',
-                'teamGMs': 'IYamAHobo',
-                'currentActivity': 'Homebase: Outer Reaches',
-                'appsOpen': false
-            },
-            {
-                'teamLetter': 'N',
-                'teamGMs': 'Nobody',
-                'currentActivity': 'Chapter 11',
-                'appsOpen': true
-            }
+            new team_card_1.TeamCard('F', 'IYamAHobo', 'Homebase: Outer Reaches', false),
+            new team_card_1.TeamCard('N', 'Nobody', 'Chapter 11', true)
         ];
     }
     AppComponent = __decorate([

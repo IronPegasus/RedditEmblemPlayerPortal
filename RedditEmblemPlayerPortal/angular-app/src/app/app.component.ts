@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { TeamCard } from '../models/teams/team-card';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,64 +15,16 @@ export class AppComponent {
   true: boolean = true;
   false: boolean = false;
 
-   myTeams: any[] = [
-    {
-      'teamLetter': 'T',
-      'teamGMs': 'IronPegasus & Leo',
-      'currentActivity': 'Chapter 12',
-      'appsOpen' : true
-    },
-    {
-      'teamLetter': 'A',
-      'teamGMs': 'Mappy & Skywolf',
-      'currentActivity': 'Homebase: A Town',
-      'appsOpen': false
-    },
-    {
-      'teamLetter': 'A',
-      'teamGMs': 'Mappy & Skywolf',
-      'currentActivity': 'Homebase: A Town',
-      'appsOpen': false
-    },
-    {
-      'teamLetter': 'A',
-      'teamGMs': 'Mappy & Skywolf',
-      'currentActivity': 'Homebase: A Town',
-      'appsOpen': true
-    },
-    {
-      'teamLetter': 'A',
-      'teamGMs': 'Mappy & Skywolf',
-      'currentActivity': 'Homebase: A Town',
-      'appsOpen': false
-    },
-    {
-      'teamLetter': 'A',
-      'teamGMs': 'Mappy & Skywolf',
-      'currentActivity': 'Homebase: A Town',
-      'appsOpen': false
-    }
+  myTeams: TeamCard[] = [
+    new TeamCard('T', 'IronPegasus & Leo', 'Chapter 12', true),
+    new TeamCard('A', 'Mappy & SkyWolf', 'Chapter 5', false),
+    new TeamCard('G', 'Shiraho & Don Quixote', 'Chapter 5', false)
   ];
-   myWorkshops: any[] = [
-     {
-       'teamLetter': 'Fairytale',
-       'teamGMs': 'IronPegasus & LadyDeme',
-       'currentActivity': '',
-       'appsOpen': false
-     }
+  myWorkshops: TeamCard[] = [
+    new TeamCard('Bird', 'IronPegasus', '', false)
    ];
-   allTeams: any[] = [
-     {
-       'teamLetter': 'F',
-       'teamGMs': 'IYamAHobo',
-       'currentActivity': 'Homebase: Outer Reaches',
-       'appsOpen': false
-     },
-     {
-       'teamLetter': 'N',
-       'teamGMs': 'Nobody',
-       'currentActivity': 'Chapter 11',
-       'appsOpen': true
-     }
+  allTeams: TeamCard[] = [
+    new TeamCard('F', 'IYamAHobo', 'Homebase: Outer Reaches', false),
+    new TeamCard('N', 'Nobody', 'Chapter 11', true)
    ];
 }

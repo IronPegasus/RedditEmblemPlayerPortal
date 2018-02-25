@@ -1,11 +1,11 @@
-﻿<div class="card hoverable">
+﻿<div class="card team-card-hover">
   <div class="card-body">
-    <h5 class="card-title">Team {{teamLetter}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{teamGMs}}</h6>
+    <h5 class="card-title">Team {{teamInfo.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{teamInfo.gmNames}}</h6>
     <p class="card-text">
-      <small>{{currentActivity}}</small>
+      <small>{{teamInfo.currActivity}}</small>
     </p>
-    <p class="card-text" *ngIf="appsOpen">
+    <p class="card-text" *ngIf="teamInfo.appsOpen">
       <small><i class="fas fa-file-alt"></i> Accepting Applications</small>
     </p>
   </div>

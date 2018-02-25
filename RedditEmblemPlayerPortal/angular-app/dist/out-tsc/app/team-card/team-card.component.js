@@ -10,31 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var team_card_1 = require("../../models/teams/team-card");
 var TeamCardComponent = /** @class */ (function () {
     function TeamCardComponent() {
-        this.appsOpen = false;
     }
     __decorate([
         core_1.Input(),
-        __metadata("design:type", String)
-    ], TeamCardComponent.prototype, "teamLetter", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], TeamCardComponent.prototype, "teamGMs", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", String)
-    ], TeamCardComponent.prototype, "currentActivity", void 0);
-    __decorate([
-        core_1.Input(),
-        __metadata("design:type", Boolean)
-    ], TeamCardComponent.prototype, "appsOpen", void 0);
+        __metadata("design:type", team_card_1.TeamCard)
+    ], TeamCardComponent.prototype, "teamInfo", void 0);
     TeamCardComponent = __decorate([
         core_1.Component({
             selector: 'team-card',
             templateUrl: './team-card.component.html',
-            styles: []
+            styleUrls: ['./team-card.component.css']
         })
     ], TeamCardComponent);
     return TeamCardComponent;

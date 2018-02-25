@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
 
+import { TeamCard } from '../../models/teams/team-card';
+
 @Component({
   selector: 'team-list',
   templateUrl: './team-list.component.html',
@@ -8,8 +10,9 @@ import { NgClass } from '@angular/common';
 })
 export class TeamListComponent{
   @Input() listTitle: string;
-  @Input() teams: any[];
+  @Input() teams: TeamCard[];
   @Input() showAdd: boolean = false;
+
   isExpanded: boolean = true;
 
   toggleExpand(): void {

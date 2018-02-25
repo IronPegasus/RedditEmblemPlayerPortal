@@ -1,0 +1,53 @@
+﻿<div id="newWorkshopModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create a New Workshop</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="bodyStart" class="modal-body">
+        <div class="container" style="text-align: center;">
+          <button id="btnFromScratch" class="btn btn-primary" (click)="fromScratch()">Start from Scratch</button>
+          <div style="padding-top: 10px; padding-bottom: 10px;">OR</div>
+          <button id="btnFromTemplate" class="btn btn-primary">Use a Template</button>
+        </div>
+      </div>
+      <div id="bodyFromScratch" class="modal-body" style="display: none;">
+        <form>
+          <div class="form-group">
+            <label for="txtNickname">Team Nickname</label>
+            <input type="text" class="form-control" id="txtNickname" required minlength="1" maxlength="32" aria-describedby="nicknameHelp" [(ngModel)]="workshop.nickname" name="nickname">
+            <small id="nicknameHelp" class="form-text text-muted">A short placeholder name that describes your team.</small>
+          </div>
+          <div class="form-group">
+            <label>Game Masters</label>
+            <div style="font-size: 18px;">
+              <span class="badge badge-pill badge-primary" *ngFor="let gm of workshop.gms; let i = index" (click)="removeGM(i)" style="margin-right: 5px;">
+                {{gm.username}} <span *ngIf="i > 0"><i class="fas fa-times fa-sm"></i></span>
+              </span>
+            </div>
+            <small class="form-text text-muted">The GMs for this team. You must be included in this list.</small>
+          </div>
+          <div class="form-group">
+            <label>Character Stats</label>
+            <button class="btn btn-primary" style="float: right;" data-toggle="modal" data-target="#newStatModal">
+              <i class="fas fa-plus fa-sm"></i>
+            </button>
+            <div style="font-size: 18px;">
+              <span class="badge badge-pill badge-primary" *ngFor="let stat of workshop.stats; let i = index" (click)="removeStat(i)" style="margin-right: 5px;">
+                {{stat.name}} <i class="fas fa-times fa-sm"></i>
+              </span>
+            </div>
+            <small class="form-text text-muted">The primary stats for units on your team, such as Str or Mag. Does not need to include Movement.</small>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<new-stat-modal (passData)="catchTeamStatModalReturn($event)"></new-stat-modal>

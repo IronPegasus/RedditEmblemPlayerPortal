@@ -15,7 +15,7 @@ namespace RedditEmblemPlayerPortal.Models.Teams
     /// <summary>The most commonly used, official name for the team (ex. Team 'A')</summary>
     public string TeamName { get; set; }
 
-    [MaxLength(32)]
+    [Required, MinLength(1), MaxLength(32)]
     /// <summary>An alternative, longer name for the team (ex. Team 'Fairytale')</summary>
     public string TeamNickname { get; set; }
 

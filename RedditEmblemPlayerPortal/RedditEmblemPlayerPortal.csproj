@@ -5,6 +5,12 @@
     <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="angular-app\src\models\file.ts" />
+    <None Remove="angular-app\src\models\teams\new-workshop.ts" />
+    <None Remove="angular-app\src\models\teams\system\teamstat.ts" />
+    <None Remove="angular-app\src\models\users\basic-user.ts" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="BundlerMinifier.Core" Version="2.6.362" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
@@ -20,6 +26,12 @@
     <Reference Include="Discord.OAuth2">
       <HintPath>Libraries\Discord.OAuth2.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="angular-app\src\models\teams\system\teamstat.ts" />
+    <TypeScriptCompile Include="angular-app\src\models\teams\team-card.ts" />
+    <TypeScriptCompile Include="angular-app\src\models\teams\new-workshop.ts" />
+    <TypeScriptCompile Include="angular-app\src\models\users\basic-user.ts" />
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug'">
     <Exec Command="dotnet bundle" />

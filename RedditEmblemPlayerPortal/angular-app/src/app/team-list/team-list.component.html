@@ -4,12 +4,12 @@
     <span *ngIf="isExpanded == false"><i class="fas fa-caret-right fa-lg"></i></span>
   </button>
   <h3 style="display: inline-block;">{{listTitle}}</h3>
-  <button class="btn btn-primary" (click)="toggleExpand()" *ngIf="showAdd" style="float: right;">
+  <button class="btn btn-primary" data-toggle="modal" data-target="#newWorkshopModal" *ngIf="showAdd" style="float: right;">
     <i class="fas fa-plus fa-sm"></i>
   </button>
   <div class="container-fluid content-row">
     <div class="row" *ngIf="isExpanded">
-      <team-card class="col-md-3" *ngFor="let card of teams" [teamLetter]="card.teamLetter" [teamGMs]="card.teamGMs" [currentActivity]="card.currentActivity" [appsOpen]="card.appsOpen"></team-card>
+      <team-card class="col-md-3" *ngFor="let team of teams" [teamInfo]="team"></team-card>
     </div>
   </div>
   <hr />
