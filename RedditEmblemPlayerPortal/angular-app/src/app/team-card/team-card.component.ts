@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'team-card',
@@ -7,5 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TeamCardComponent {
   @Input() teamLetter: string;
-  @Input() teamGMs: string[];
+  @Input() teamGMs: string;
+  @Input() currentActivity: string;
+  @Input() appsOpen: boolean = false;
 }

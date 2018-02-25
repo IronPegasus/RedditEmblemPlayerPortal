@@ -20,7 +20,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<team-list [listTitle]=\"myTeamTitle\" [teams]=\"myTeams\"></team-list>\r\n<team-list [listTitle]=\"myWorkshopTitle\" [teams]=\"myWorkshops\"></team-list>\r\n<team-list [listTitle]=\"allTeamsTitle\" [teams]=\"allTeams\"></team-list>"
+module.exports = "<team-list [listTitle]=\"myTeamTitle\" [teams]=\"myTeams\" [showAdd]=\"false\"></team-list>\r\n<team-list [listTitle]=\"myWorkshopTitle\" [teams]=\"myWorkshops\" [showAdd]=\"true\"></team-list>\r\n<team-list [listTitle]=\"allTeamsTitle\" [teams]=\"allTeams\"[showAdd]=\"false\"></team-list>"
 
 /***/ }),
 
@@ -42,46 +42,66 @@ var AppComponent = /** @class */ (function () {
         this.myTeamTitle = "My Teams";
         this.myWorkshopTitle = "My Workshops";
         this.allTeamsTitle = "All Teams";
+        this.true = true;
+        this.false = false;
         this.myTeams = [
             {
                 'teamLetter': 'T',
-                'teamGMs': ['IronPegasus', 'Leo']
+                'teamGMs': 'IronPegasus & Leo',
+                'currentActivity': 'Chapter 12',
+                'appsOpen': true
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': true
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             }
         ];
         this.myWorkshops = [
             {
                 'teamLetter': 'Fairytale',
-                'teamGMs': ['IronPegasus'],
+                'teamGMs': 'IronPegasus & LadyDeme',
+                'currentActivity': '',
+                'appsOpen': false
             }
         ];
         this.allTeams = [
             {
                 'teamLetter': 'F',
-                'teamGMs': ['IYamAHobo'],
+                'teamGMs': 'IYamAHobo',
+                'currentActivity': 'Homebase: Outer Reaches',
+                'appsOpen': false
             },
             {
-                'teamLetter': 'L',
-                'teamGMs': ['Nobody'],
+                'teamLetter': 'N',
+                'teamGMs': 'Nobody',
+                'currentActivity': 'Chapter 11',
+                'appsOpen': true
             }
         ];
     }
@@ -147,7 +167,7 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/team-card/team-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n  <div class=\"card-body\">\r\n    <h4 class=\"card-title\">Team {{teamLetter}}</h4>\r\n    <h6 class=\"card-subtitle mb-2 text-muted\">\r\n      <span *ngFor=\"let GM of teamGMs; index as i; last as isLast\">\r\n        <span *ngIf=\"i > 0 && teamGMs.length > 2\">,</span> <span *ngIf=\"i > 0 && isLast\">& </span>{{GM}}\r\n      </span>\r\n    </h6>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-body\">\r\n    <h5 class=\"card-title\">Team {{teamLetter}}</h5>\r\n    <h6 class=\"card-subtitle mb-2 text-muted\">{{teamGMs}}</h6>\r\n    <p class=\"card-text\">\r\n      <small>{{currentActivity}}</small>\r\n    </p>\r\n    <p class=\"card-text\" *ngIf=\"appsOpen\">\r\n      <small><i class=\"fas fa-file-alt\"></i> Accepting Applications</small>\r\n    </p>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -169,6 +189,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var TeamCardComponent = /** @class */ (function () {
     function TeamCardComponent() {
+        this.appsOpen = false;
     }
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Input */])(),
@@ -176,8 +197,16 @@ var TeamCardComponent = /** @class */ (function () {
     ], TeamCardComponent.prototype, "teamLetter", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Input */])(),
-        __metadata("design:type", Array)
+        __metadata("design:type", String)
     ], TeamCardComponent.prototype, "teamGMs", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Input */])(),
+        __metadata("design:type", String)
+    ], TeamCardComponent.prototype, "currentActivity", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], TeamCardComponent.prototype, "appsOpen", void 0);
     TeamCardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'team-card',
@@ -195,7 +224,7 @@ var TeamCardComponent = /** @class */ (function () {
 /***/ "./src/app/team-list/team-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"padding-top: 20px;\">\r\n  <i class=\"fas fa-lg\" [ngClass]=\"{'fa-caret-down': isExpanded, 'fa-caret-right': !isExpanded}\" (click)=\"toggleExpand()\"></i>   <h3 style=\"display: inline-block;\">{{listTitle}}</h3>\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let card of teams\" class=\"col-md-3\" style=\"margin-top: 5px; margin-bottom: 5px;\">\r\n      <team-card [teamLetter]=\"card.teamLetter\" [teamGMs]=\"card.teamGMs\"></team-card>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div style=\"padding-right: 10px;\">\r\n  <button class=\"btn btn-link\" (click)=\"toggleExpand()\" style=\"width: 30px;\">\r\n    <span *ngIf=\"isExpanded\"><i class=\"fas fa-caret-down fa-lg\"></i></span>\r\n    <span *ngIf=\"isExpanded == false\"><i class=\"fas fa-caret-right fa-lg\"></i></span>\r\n  </button>\r\n  <h3 style=\"display: inline-block;\">{{listTitle}}</h3>\r\n  <button class=\"btn btn-primary\" (click)=\"toggleExpand()\" *ngIf=\"showAdd\" style=\"float: right;\">\r\n    <i class=\"fas fa-plus fa-sm\"></i>\r\n  </button>\r\n  <div class=\"container-fluid content-row\">\r\n    <div class=\"row\" *ngIf=\"isExpanded\">\r\n      <team-card class=\"col-md-3\" *ngFor=\"let card of teams\" [teamLetter]=\"card.teamLetter\" [teamGMs]=\"card.teamGMs\" [currentActivity]=\"card.currentActivity\" [appsOpen]=\"card.appsOpen\"></team-card>\r\n    </div>\r\n  </div>\r\n  <hr />\r\n</div>,"
 
 /***/ }),
 
@@ -217,6 +246,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var TeamListComponent = /** @class */ (function () {
     function TeamListComponent() {
+        this.showAdd = false;
         this.isExpanded = true;
     }
     TeamListComponent.prototype.toggleExpand = function () {
@@ -230,6 +260,10 @@ var TeamListComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Input */])(),
         __metadata("design:type", Array)
     ], TeamListComponent.prototype, "teams", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["z" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], TeamListComponent.prototype, "showAdd", void 0);
     TeamListComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'team-list',

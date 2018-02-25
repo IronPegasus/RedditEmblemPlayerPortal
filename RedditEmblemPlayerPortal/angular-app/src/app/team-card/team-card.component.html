@@ -1,10 +1,12 @@
-﻿<div class="card">
+﻿<div class="card hoverable">
   <div class="card-body">
-    <h4 class="card-title">Team {{teamLetter}}</h4>
-    <h6 class="card-subtitle mb-2 text-muted">
-      <span *ngFor="let GM of teamGMs; index as i; last as isLast">
-        <span *ngIf="i > 0 && teamGMs.length > 2">,</span> <span *ngIf="i > 0 && isLast">& </span>{{GM}}
-      </span>
-    </h6>
+    <h5 class="card-title">Team {{teamLetter}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{teamGMs}}</h6>
+    <p class="card-text">
+      <small>{{currentActivity}}</small>
+    </p>
+    <p class="card-text" *ngIf="appsOpen">
+      <small><i class="fas fa-file-alt"></i> Accepting Applications</small>
+    </p>
   </div>
 </div>

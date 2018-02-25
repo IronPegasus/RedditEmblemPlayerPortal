@@ -9,6 +9,7 @@ import { NgClass } from '@angular/common';
 export class TeamListComponent{
   @Input() listTitle: string;
   @Input() teams: any[];
+  @Input() showAdd: boolean = false;
   isExpanded: boolean = true;
 
   toggleExpand(): void {

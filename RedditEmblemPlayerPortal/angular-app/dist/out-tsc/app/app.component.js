@@ -12,46 +12,66 @@ var AppComponent = /** @class */ (function () {
         this.myTeamTitle = "My Teams";
         this.myWorkshopTitle = "My Workshops";
         this.allTeamsTitle = "All Teams";
+        this.true = true;
+        this.false = false;
         this.myTeams = [
             {
                 'teamLetter': 'T',
-                'teamGMs': ['IronPegasus', 'Leo']
+                'teamGMs': 'IronPegasus & Leo',
+                'currentActivity': 'Chapter 12',
+                'appsOpen': true
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': true
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             },
             {
                 'teamLetter': 'A',
-                'teamGMs': ['Mappy', 'Skywolf']
+                'teamGMs': 'Mappy & Skywolf',
+                'currentActivity': 'Homebase: A Town',
+                'appsOpen': false
             }
         ];
         this.myWorkshops = [
             {
                 'teamLetter': 'Fairytale',
-                'teamGMs': ['IronPegasus'],
+                'teamGMs': 'IronPegasus & LadyDeme',
+                'currentActivity': '',
+                'appsOpen': false
             }
         ];
         this.allTeams = [
             {
                 'teamLetter': 'F',
-                'teamGMs': ['IYamAHobo'],
+                'teamGMs': 'IYamAHobo',
+                'currentActivity': 'Homebase: Outer Reaches',
+                'appsOpen': false
             },
             {
-                'teamLetter': 'L',
-                'teamGMs': ['Nobody'],
+                'teamLetter': 'N',
+                'teamGMs': 'Nobody',
+                'currentActivity': 'Chapter 11',
+                'appsOpen': true
             }
         ];
     }

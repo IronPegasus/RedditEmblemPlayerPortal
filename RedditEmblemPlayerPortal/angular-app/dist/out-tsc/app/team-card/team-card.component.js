@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var TeamCardComponent = /** @class */ (function () {
     function TeamCardComponent() {
+        this.appsOpen = false;
     }
     __decorate([
         core_1.Input(),
@@ -19,8 +20,16 @@ var TeamCardComponent = /** @class */ (function () {
     ], TeamCardComponent.prototype, "teamLetter", void 0);
     __decorate([
         core_1.Input(),
-        __metadata("design:type", Array)
+        __metadata("design:type", String)
     ], TeamCardComponent.prototype, "teamGMs", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], TeamCardComponent.prototype, "currentActivity", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], TeamCardComponent.prototype, "appsOpen", void 0);
     TeamCardComponent = __decorate([
         core_1.Component({
             selector: 'team-card',

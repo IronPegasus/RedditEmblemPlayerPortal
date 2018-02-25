@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var TeamListComponent = /** @class */ (function () {
     function TeamListComponent() {
+        this.showAdd = false;
         this.isExpanded = true;
     }
     TeamListComponent.prototype.toggleExpand = function () {
@@ -25,6 +26,10 @@ var TeamListComponent = /** @class */ (function () {
         core_1.Input(),
         __metadata("design:type", Array)
     ], TeamListComponent.prototype, "teams", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Boolean)
+    ], TeamListComponent.prototype, "showAdd", void 0);
     TeamListComponent = __decorate([
         core_1.Component({
             selector: 'team-list',
